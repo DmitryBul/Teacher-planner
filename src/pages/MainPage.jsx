@@ -1,10 +1,23 @@
 import { useState } from "react";
-import { Flex, Box } from "@mantine/core";
+import { Flex, Box, Button, Text } from "@mantine/core";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import NoteCard from "../components/NoteCard"; 
+import { useNotes } from "../hooks/useNotes"; 
 
 const MainPage = () => {
   const [value, onChange] = useState(new Date());
+
+  const {
+    notes,
+    currentIndex,
+    note,
+    goToPrev,
+    goToNext,
+    deleteCurrentNote,
+    addNote,
+    updateNote,
+  } = useNotes();
 
   return (
     <div
@@ -31,12 +44,28 @@ const MainPage = () => {
                 onChange={onChange}
                 value={value}
                 style={{ width: "100%", border: "none" }}
+                
               />
             </div>
           </Box>
-          <Box flex={1} bg="red.4" style={{ borderRadius: 8 }}>
-            NOTES
+
+          <Box flex={1} style={{ borderRadius: 8 }}>
+            {notes.length > 0 ? (
+              <NoteCard
+                note={note}
+                noteIndex={currentIndex}
+                totalNotes={notes.length}
+                onPrev={goToPrev}
+                onNext={goToNext}
+                onDelete={deleteCurrentNote}
+                onChange={updateNote}
+                onAddNewNote={addNote}
+              />
+            ) : (
+              <Text>No notes</Text>
+            )}
           </Box>
+
           <Box flex={1} bg="green.4" style={{ borderRadius: 8 }}>
             RECENT FILES
           </Box>
