@@ -44,8 +44,7 @@ const MainPage = () => {
     subject: "",
     startTime: "08:00",
     endTime: "08:45",
-    room: "",
-    teacher: ""
+    room: ""
   });
 
   const handleAddLesson = () => {
@@ -56,8 +55,7 @@ const MainPage = () => {
       subject: "",
       startTime: "08:00",
       endTime: "08:45",
-      room: "",
-      teacher: ""
+      room: ""
     });
     closeModal();
   };
@@ -128,14 +126,6 @@ const MainPage = () => {
           mb="sm"
         />
         
-        <TextInput
-          label="Учитель"
-          placeholder="ФИО учителя"
-          name="teacher"
-          value={newLesson.teacher}
-          onChange={(e) => setNewLesson({...newLesson, teacher: e.target.value})}
-          mb="md"
-        />
         
         <Button fullWidth onClick={handleAddLesson}>
           Сохранить урок
@@ -244,7 +234,7 @@ const MainPage = () => {
                           {index + 1}. {lesson.subject}
                         </Text>
                         <Text size="md" color="dimmed">
-                          ⏱ {lesson.startTime} - {lesson.endTime} | 🚪 {lesson.room} | 👩‍🏫 {lesson.teacher}
+                          ⏱ {lesson.startTime} - {lesson.endTime} | 🚪 {lesson.room}
                         </Text>
                       </List.Item>
                     ))}
