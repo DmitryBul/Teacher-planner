@@ -11,6 +11,7 @@ import "react-calendar/dist/Calendar.css";
 import NoteCard from "../components/NoteCard"; 
 import { useNotes } from "../hooks/useNotes"; 
 import useLessons from "../hooks/useLessons";
+import FileSystem from "../components/FileSystem";
 
 const MainPage = () => {
   const { 
@@ -297,8 +298,9 @@ const MainPage = () => {
 
         <Flex w="25%" direction="column" gap="sm">
           <Box flex={1.5} bg="gray.1" style={{ borderRadius: 8, padding: "16px" }}>
-            <Text size="lg" weight={500}>Файлы</Text>
-          </Box>
+  <Text size="lg" weight={500} mb="sm">Файлы</Text>
+  <FileSystem />
+</Box>
           <Box flex={1} bg="gray.1" style={{ borderRadius: 8, padding: "16px" }}>
             <Text size="lg" weight={500}>AI Ассистент</Text>
           </Box>
